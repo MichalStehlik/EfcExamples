@@ -1,0 +1,4 @@
+﻿NuGet: Install-Package Microsoft.EntityFrameworkCore.Sqlite
+
+1. Navrhnout model v Data\
+2. Vytvořit Context
