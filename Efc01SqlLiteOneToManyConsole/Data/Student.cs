@@ -9,6 +9,7 @@ namespace Efc01SqlLiteOneToManyConsole.Data
     class Student
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // not needed
         public int Id { get; set; }
         [Required]
         public string FirstName { get; set; }

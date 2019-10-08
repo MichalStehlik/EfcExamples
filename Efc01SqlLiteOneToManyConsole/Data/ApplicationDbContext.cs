@@ -9,25 +9,27 @@ namespace Efc01SqlLiteOneToManyConsole.Data
     {
         public DbSet<Student> Students { get; set; }
         public DbSet<Classroom> Classrooms { get; set; }
-        public ApplicationDbContext()
+        public ApplicationDbContext() : base()
         {
-            Database.EnsureDeleted(); // smaže obsah souboru s databází
-            Database.EnsureCreated(); // zajistí existenci struktury databáze v souboru
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder options) 
         {
-            options.UseSqlite(@"Data Source=myDatabaseFile.db");
-            //options.EnableSensitiveDataLogging();
+            options.UseSqlite(@"Data Source=myDatabaseFile.sqlite");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            Classroom c1 = new Classroom { Id = 1, Name = "P1" };
-            Classroom c2 = new Classroom { Id = 2, Name = "P2" };
+            base.OnModelCreating(modelBuilder);
+            #region Další nastavení přes fluid zápis
             modelBuilder.Entity<Student>()
                 .Property(p => p.FirstName)
                 .HasMaxLength(10);
-            modelBuilder.Entity<Classroom>().HasData(c1);
+            #endregion
+            #region Seed databáze
+            // https://www.learnentityframeworkcore.com/migrations/seeding
+            modelBuilder.Entity<Classroom>().HasData(new Classroom { Id = 1, Name = "P1" });
             modelBuilder.Entity<Classroom>().HasData(new Classroom { Id = 2, Name = "P2" });
             modelBuilder.Entity<Classroom>().HasData(new Classroom { Id = 3, Name = "P3" });
             modelBuilder.Entity<Classroom>().HasData(new Classroom { Id = 4, Name = "P4" });
@@ -36,7 +38,7 @@ namespace Efc01SqlLiteOneToManyConsole.Data
             modelBuilder.Entity<Student>().HasData(new Student { Id = 3, FirstName = "Cyrus", LastName = "Creed", ClassroomId = 2 });
             modelBuilder.Entity<Student>().HasData(new Student { Id = 4, FirstName = "Diane", LastName = "Drake", ClassroomId = 2 });
             modelBuilder.Entity<Student>().HasData(new Student { Id = 5, FirstName = "Emilia", LastName = "Evening", ClassroomId = 2 });
-            base.OnModelCreating(modelBuilder);
+            #endregion
         }
     } 
 }
