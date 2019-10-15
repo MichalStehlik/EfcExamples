@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Efc00SqlLiteConsole", "00EfcSqlLiteConsole\Efc00SqlLiteConsole.csproj", "{A18B6F63-B897-446E-95B0-9F627508593D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Efc01SqlLiteOneToManyConsole", "Efc01SqlLiteOneToManyConsole\Efc01SqlLiteOneToManyConsole.csproj", "{2E6DEA7A-D1C1-4C4F-BD85-FA5A4943C4E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Efc01SqlLiteOneToManyConsole", "Efc01SqlLiteOneToManyConsole\Efc01SqlLiteOneToManyConsole.csproj", "{2E6DEA7A-D1C1-4C4F-BD85-FA5A4943C4E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Efc02SqliteManyToManyConsole", "Efc02SqliteManyToManyConsole\Efc02SqliteManyToManyConsole.csproj", "{9733BAA5-1C28-4922-A99A-0BE47985D380}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Efc03SqlServerConsole", "Efc03SqlServerConsole\Efc03SqlServerConsole.csproj", "{17DA6CCE-46F3-4F66-B193-92C23426E912}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{2E6DEA7A-D1C1-4C4F-BD85-FA5A4943C4E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E6DEA7A-D1C1-4C4F-BD85-FA5A4943C4E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E6DEA7A-D1C1-4C4F-BD85-FA5A4943C4E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9733BAA5-1C28-4922-A99A-0BE47985D380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9733BAA5-1C28-4922-A99A-0BE47985D380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9733BAA5-1C28-4922-A99A-0BE47985D380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9733BAA5-1C28-4922-A99A-0BE47985D380}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17DA6CCE-46F3-4F66-B193-92C23426E912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17DA6CCE-46F3-4F66-B193-92C23426E912}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17DA6CCE-46F3-4F66-B193-92C23426E912}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17DA6CCE-46F3-4F66-B193-92C23426E912}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
