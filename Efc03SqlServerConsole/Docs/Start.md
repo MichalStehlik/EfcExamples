@@ -22,9 +22,9 @@
 Data Source je zkopírovaný *ConnectionString*
 
 5. Vytvoření první Migrace
- 1. NuGet: `Add-Migration Init` (pozor na nastavení Default Project v Package Manager Console)
+    1. NuGet: `Add-Migration Init` (pozor na nastavení Default Project v Package Manager Console)
 
 6. Promítnutí migrace do databáze
- 1. NuGet: `Update-Database`
+    1. NuGet: `Update-Database`
 
 7. Naprogramovat aplikaci
