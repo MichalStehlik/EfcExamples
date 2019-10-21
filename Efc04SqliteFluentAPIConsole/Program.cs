@@ -1,6 +1,8 @@
 ﻿using Efc04SqliteFluentAPIConsole.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
+using System.IO;
 using System.Linq;
 
 namespace Efc04SqliteFluentAPIConsole
@@ -9,11 +11,19 @@ namespace Efc04SqliteFluentAPIConsole
     {
         static void Main(string[] args)
         {
-            var db = new ApplicationDbContext();
-            db.Students.Add(new Student { FirstName = "Fiona", LastName = "Ferarri", ClassroomId = 1 });
-            db.Students.Add(new Student { FirstName = "George", LastName = "Grayson", ClassroomId = 2 });
-            db.Students.Add(new Student { FirstName = "Henry", LastName = "Hudson", ClassroomId = 2 });
-            db.Students.Add(new Student { FirstName = "Christine", ClassroomId = 2 });
+            var configurationBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            IConfigurationRoot configuration = configurationBuilder.Build();
+
+            Console.WriteLine(configuration.GetConnectionString("Storage"));
+            Console.ReadKey();
+            var db = new ApplicationDbContext(configuration);
+            db.Students.Add(new Student { FirstName = "Fiona", LastName = "Ferarri", Email = "f.f@school.cloud", ClassroomId = 1 });
+            db.Students.Add(new Student { FirstName = "George", LastName = "Grayson", Email = "g.g@school.cloud", ClassroomId = 2 });
+            db.Students.Add(new Student { FirstName = "Henry", LastName = "Hudson", Email = "h.h@school.cloud", ClassroomId = 2 });
+            db.Students.Add(new Student { FirstName = "Christine", Email = "ch.d@school.cloud", ClassroomId = 2 });
             db.SaveChanges();
             foreach (var s in db.Students.Include(s => s.Classroom).ToList())
             {

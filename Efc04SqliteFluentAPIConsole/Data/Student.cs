@@ -11,6 +11,7 @@ namespace Efc04SqliteFluentAPIConsole.Data
         public int StudentIdentificator { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
         public Classroom Classroom { get; set; }
         public int ClassroomId { get; set; }
     }
