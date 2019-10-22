@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Efc04SqliteFluentAPIConsole.Data
 {
-    class Student
+    public class Student
     {
         public int StudentIdentificator { get; set; }
         public string FirstName { get; set; }

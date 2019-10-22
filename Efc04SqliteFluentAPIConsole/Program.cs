@@ -11,15 +11,27 @@ namespace Efc04SqliteFluentAPIConsole
     {
         static void Main(string[] args)
         {
+            #region Konfigurace verze 1
+            // načtení konfigurace z externího .json souboru
+            // https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.configurationbuilder?view=dotnet-plat-ext-3.0
+            /*
             var configurationBuilder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                .SetBasePath(Directory.GetCurrentDirectory()) // hledá konfiguraci v \bin\Debug\netcoreapp2.2
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
             IConfigurationRoot configuration = configurationBuilder.Build();
-
-            Console.WriteLine(configuration.GetConnectionString("Storage"));
-            Console.ReadKey();
-            var db = new ApplicationDbContext(configuration);
+           
+            var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            builder.UseSqlite(connectionString); 
+            var db = new ApplicationDbContext(builder.Options);
+            */
+            #endregion
+            #region Konfigurace verze 2
+            // konfigurační soubor je načítán továrnou ApplicationDbContextFactory
+            // odstraněna duplicita kódu
+            var db = new ApplicationDbContextFactory().CreateDbContext(new string[0]);
+            #endregion
             db.Students.Add(new Student { FirstName = "Fiona", LastName = "Ferarri", Email = "f.f@school.cloud", ClassroomId = 1 });
             db.Students.Add(new Student { FirstName = "George", LastName = "Grayson", Email = "g.g@school.cloud", ClassroomId = 2 });
             db.Students.Add(new Student { FirstName = "Henry", LastName = "Hudson", Email = "h.h@school.cloud", ClassroomId = 2 });

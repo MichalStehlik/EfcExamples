@@ -6,20 +6,17 @@ using System.Text;
 
 namespace Efc04SqliteFluentAPIConsole.Data
 {
-    class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        protected IConfigurationRoot _configuration;
         public DbSet<Student> Students { get; set; }
         public DbSet<Classroom> Classrooms { get; set; }
-        public ApplicationDbContext(IConfigurationRoot configuration) : base()
-        {
-            _configuration = configuration;
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
-        }
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(_configuration.GetConnectionString("Storage"));
+            base.OnConfiguring(optionsBuilder);
+            // nahrazeno konfigurací z Program.cs
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -29,7 +26,7 @@ namespace Efc04SqliteFluentAPIConsole.Data
             // https://www.entityframeworktutorial.net/efcore/fluent-api-in-entity-framework-core.aspx
             // https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.modelbuilder?view=efcore-3.0
             // https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbset-1?view=efcore-3.0
-            // délka textu
+            // délka textu + povinné pole
             modelBuilder.Entity<Student>()
                 .Property(s => s.FirstName)
                 .HasMaxLength(30)
