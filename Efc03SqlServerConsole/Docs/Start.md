@@ -1,11 +1,11 @@
 ﻿# 03 - Připojení k SQL Serveru
 1. Instalace rozšíření
 
-    1. NuGet: `Install-Package Microsoft.EntityFrameworkCore.SqlServer`
+    1. NuGet: `Install-Package Microsoft.EntityFrameworkCore.SqlServer` pro samotné připojení k SQL Serveru.
     
-    1. NuGet: `Install-Package Microsoft.EntityFrameworkCore.Tools`
+    1. NuGet: `Install-Package Microsoft.EntityFrameworkCore.Design` pro mechanismus migrací
     
-    1. NuGet: `Install-Package Microsoft.EntityFrameworkCore.Design`
+    1. NuGet: `Install-Package Microsoft.EntityFrameworkCore.Tools` pro příkazy Add-Migration a Update-Database
     
 2. Vytvoření [modelu](https://github.com/MichalStehlik/EfcExamples/tree/master/Efc03SqlServerConsole/Data)
 
