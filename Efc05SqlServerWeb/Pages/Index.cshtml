@@ -14,16 +14,20 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Exhibit[0].Name)
+                <a asp-page="./Index" asp-route-order="@Model.NameSort">
+                    @Html.DisplayNameFor(model => model.Exhibits[0].Name)
+                </a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Exhibit[0].Year)
+                <a asp-page="./Index" asp-route-order="@Model.YearSort">
+                    @Html.DisplayNameFor(model => model.Exhibits[0].Year)
+                </a>
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Exhibit) {
+@foreach (var item in Model.Exhibits) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)

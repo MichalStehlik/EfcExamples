@@ -17,12 +17,36 @@ namespace Efc05SqlServerWeb.Pages
         {
             _context = context;
         }
+        // sort properties
+        public string NameSort { get; set; }
+        public string YearSort { get; set; }
 
-        public IList<Exhibit> Exhibit { get;set; }
+        public IList<Exhibit> Exhibits { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string order = "")
         {
-            Exhibit = await _context.Exhibits.ToListAsync();
+            NameSort = String.IsNullOrEmpty(order) ? "name_desc" : "";
+            YearSort = order == "year" ? "year_desc" : "year";
+
+            IQueryable<Exhibit> exhibits = _context.Exhibits;
+
+            switch (order)
+            {
+                case "name_desc":
+                    exhibits = exhibits.OrderByDescending(e => e.Name);
+                    break;
+                case "year":
+                    exhibits = exhibits.OrderBy(e => e.Year);
+                    break;
+                case "year_desc":
+                    exhibits = exhibits.OrderByDescending(e => e.Year);
+                    break;
+                default:
+                    exhibits = exhibits.OrderBy(e => e.Name);
+                    break;
+            }
+
+            Exhibits = await exhibits.AsNoTracking().ToListAsync();
         }
     }
 }
