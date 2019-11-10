@@ -10,16 +10,23 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form asp-page="./Index" method="get" class="form-inline">
+    <label class="sr-only" for="Search">Search</label>
+    <input type="text" name="Search" class="form-control mb-2 mr-sm-2" value="@Model.CurrentFilter" />           
+    <input type="submit" value="Search" class="btn btn-primary mb-2 mr-1" /> <a asp-page="./Index" class="btn btn-secondary mb-2">Back to full List</a>   
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                <a asp-page="./Index" asp-route-order="@Model.NameSort">
+                <a asp-page="./Index" asp-route-order="@Model.NameSort" asp-route-filter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Exhibits[0].Name)
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-order="@Model.YearSort">
+                <a asp-page="./Index" asp-route-order="@Model.YearSort" asp-route-filter="@Model.CurrentFilter">
                     @Html.DisplayNameFor(model => model.Exhibits[0].Year)
                 </a>
             </th>

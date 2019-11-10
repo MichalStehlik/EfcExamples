@@ -17,18 +17,37 @@ namespace Efc05SqlServerWeb.Pages
         {
             _context = context;
         }
-        // sort properties
+        // sort and filter properties
         public string NameSort { get; set; }
         public string YearSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
 
         public IList<Exhibit> Exhibits { get;set; }
 
-        public async Task OnGetAsync(string order = "")
+        public async Task OnGetAsync(string order, string search, string filter)
         {
+            CurrentSort = order;
             NameSort = String.IsNullOrEmpty(order) ? "name_desc" : "";
             YearSort = order == "year" ? "year_desc" : "year";
 
+            if (search != null)
+            {
+                // TODO
+            }
+            else
+            {
+                search = filter;
+            }
+
+            CurrentFilter = search;
+
             IQueryable<Exhibit> exhibits = _context.Exhibits;
+
+            if (!String.IsNullOrEmpty(search))
+            {
+                exhibits = exhibits.Where(e => e.Name.Contains(search));
+            }
 
             switch (order)
             {
