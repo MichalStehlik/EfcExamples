@@ -13,7 +13,9 @@ Ukázka připojení k jinému než SQLite "serveru". Je použit SQL Server vesta
 ### 04 - [Fluent API a konfigurace databáze ze souboru](https://github.com/MichalStehlik/EfcExamples/tree/master/Efc04SqliteFluentAPIConsole)
 Již poměrně komplikovaný příklad si klade za cíl odstranit definici připojovacího řetězce z kódu ApplicationDbContext a její umístění do souboru "appsettings.json" tak, aby nadále fungoval mechanismus migrací. Zároveň jsou zde předvedeny možnosti konfigurace entit nikoliv přes anotace, ale přes Fluent API. Je zde opět využita SQLite databáze.
 ### 05 - [ASP.NET Razor Pages](https://github.com/MichalStehlik/EfcExamples/tree/master/Efc05SqlServerWeb)
-Zkonfigurovaná a automaticky scaffoldovaná verze webové aplikace o jedné tabulce pracující s lokálním SQL Serverem.
+Zkonfigurovaná a automaticky scaffoldovaná verze webové aplikace o jedné tabulce pracující s lokálním SQL Serverem. Obsahuje výpis světových obrazů s fungujícím řazením a filtrováním podle jména.
+### 06 - [Raw SQL](https://github.com/MichalStehlik/EfcExamples/tree/master/Efc06RawSQL)
+Konzolová aplikace ukazující (omezené) možnosti komunikace s SQL Serverem čistě prostřednictvím dotazů SQL.
 
 ## Dokumentace k dalšímu studiu
 * https://docs.microsoft.com/cs-cz/ef/core/ (MSDN)
