@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Efc03SqlServerConsole", "Ef
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Efc04SqliteFluentAPIConsole", "Efc04SqliteFluentAPIConsole\Efc04SqliteFluentAPIConsole.csproj", "{826ED3B8-6881-4DF9-97B1-CCAAADAD75DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Efc05SqlServerWeb", "Efc05SqlServerWeb\Efc05SqlServerWeb.csproj", "{BA14AAF7-2976-4FD0-A7F9-580420FF1146}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Efc05SqlServerWeb", "Efc05SqlServerWeb\Efc05SqlServerWeb.csproj", "{BA14AAF7-2976-4FD0-A7F9-580420FF1146}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Efc06RawSQL", "Efc06RawSQL\Efc06RawSQL.csproj", "{E3A667BC-444A-4C45-883F-B3E7FE04F8F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{BA14AAF7-2976-4FD0-A7F9-580420FF1146}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA14AAF7-2976-4FD0-A7F9-580420FF1146}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA14AAF7-2976-4FD0-A7F9-580420FF1146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3A667BC-444A-4C45-883F-B3E7FE04F8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3A667BC-444A-4C45-883F-B3E7FE04F8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3A667BC-444A-4C45-883F-B3E7FE04F8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3A667BC-444A-4C45-883F-B3E7FE04F8F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
